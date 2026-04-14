@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="ko">
+<html lang="en">
 <head>
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -12,21 +12,15 @@
   gtag('config', 'G-ZPH0DNZQK7');
 </script>
 <script>
-  // Auto-redirect non-Korean visitors to the English version (first-visit only)
+  // Remember manual language choice so user isn't redirected back
   (function() {
     try {
       var manual = new URLSearchParams(location.search).get('lang');
-      if (manual) { sessionStorage.setItem('lang_chosen', manual); return; }
-      if (sessionStorage.getItem('lang_chosen')) return;
-      var lang = (navigator.language || navigator.userLanguage || '').toLowerCase();
-      if (!lang.startsWith('ko')) {
-        sessionStorage.setItem('lang_chosen', 'auto');
-        location.replace('en.html');
-      }
+      if (manual) sessionStorage.setItem('lang_chosen', manual);
     } catch (e) {}
   })();
 </script>
-<title>이주원 · Software Engineer Portfolio</title>
+<title>Jayden · Software Engineer Portfolio</title>
 <link rel="preconnect" href="https://cdn.jsdelivr.net" crossorigin>
 <link rel="stylesheet" as="style" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/variable/pretendardvariable-dynamic-subset.css">
 <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Crect width='100' height='100' rx='20' fill='%23000000'/%3E%3Ctext x='22' y='68' font-size='52' font-family='ui-monospace,Consolas,monospace' font-weight='700' fill='%2334d399'%3E%26gt;%3C/text%3E%3Crect x='58' y='58' width='28' height='8' fill='%2334d399'%3E%3Canimate attributeName='opacity' values='1;0;1' dur='1s' repeatCount='indefinite'/%3E%3C/rect%3E%3C/svg%3E"/>
@@ -493,14 +487,14 @@
 </head>
 <body>
 
-<button class="nav-toggle" id="navToggle" aria-label="메뉴 열기">
+<button class="nav-toggle" id="navToggle" aria-label="Open menu">
   <span></span><span></span><span></span>
 </button>
-<a class="lang-toggle" href="en.html?lang=en" aria-label="Switch to English">EN</a>
+<a class="lang-toggle" href="index.html?lang=ko" aria-label="한국어로 보기">KO</a>
 <div class="nav-overlay" id="navOverlay"></div>
 
 <nav class="side" id="sideNav">
-  <div class="brand"><span class="emoji">👨‍💻</span><span>이주원 Portfolio</span></div>
+  <div class="brand"><span class="emoji">👨‍💻</span><span>Jayden · Portfolio</span></div>
   <div class="label">Pages</div>
   <a href="#hero" class="active"><span class="ico">🏠</span>Home</a>
   <a href="#about"><span class="ico">📖</span>About</a>
@@ -518,23 +512,22 @@
   <!-- HERO -->
   <section id="hero" class="fade">
     <div class="icon-header">👨‍💻</div>
-    <h1>이주원 · Software Engineer</h1>
+    <h1>Jayden · Software Engineer</h1>
     <p style="color: var(--muted); font-size: 16px;">Last edited: April 10, 2026</p>
 
     <div class="props">
       <div class="row"><div class="k">🏷️ Role</div><div class="v"><span class="tag">Full Stack Developer</span></div></div>
       <div class="row"><div class="k">📍 Location</div><div class="v">Seoul, South Korea 🇰🇷</div></div>
-      <div class="row"><div class="k">💼 Status</div><div class="v"><span class="tag" style="background:#d3f0db; color:#0f7a2e;">● 구직 중</span></div></div>
+      <div class="row"><div class="k">💼 Status</div><div class="v"><span class="tag" style="background:#d3f0db; color:#0f7a2e;">● Open to work</span></div></div>
       <div class="row"><div class="k">📧 Email</div><div class="v"><a href="mailto:eqie112@gmail.com">eqie112@gmail.com</a></div></div>
       <div class="row"><div class="k">💼 LinkedIn</div><div class="v"><a href="https://www.linkedin.com/in/juwon-lee-b19a92191/" target="_blank">linkedin.com/in/juwon-lee</a></div></div>
-      <!-- <div class="row"><div class="k">🔗 GitHub</div><div class="v"><a href="https://github.com" target="_blank">github.com/juwonlee</a></div></div> -->
     </div>
 
     <div class="callout">
       <div class="icon">💡</div>
       <div>
-        안녕하세요. 사용자에게 가치를 전달하는 프로덕트를 만드는 개발자 <b>이주원</b>입니다.
-        이 페이지는 제 여정과 작업물을 한눈에 보여드리기 위해 정리했어요. 천천히 둘러보세요.
+        Hi, I'm <b>Jayden</b> — a developer who builds products that deliver real value to users.
+        This page is a quick overview of my journey and work. Feel free to take your time exploring.
       </div>
     </div>
   </section>
@@ -543,50 +536,53 @@
   <section id="about" class="fade">
     <h2>📖 About Me</h2>
     <p class="intro">
-      <b>13년 차 풀스택 개발자</b>로, 문제의 본질을 파고드는 것을 좋아하고, 코드뿐만 아니라 제품과 사용자 경험 전체를 고민합니다.
-      <b>스타트업 0→1</b>부터 <b>대규모 트래픽 환경</b>까지 경험했고, <b>팀을 리드</b>하며 함께 성장하는 문화를 만드는 데 관심이 많습니다.
-      기술적 완성도와 제품의 가치, 두 축 모두를 놓치지 않으려 합니다.
+      A <b>full-stack developer with 13 years of experience</b>, I love digging into the root of a problem —
+      caring not only about code, but about the product and user experience as a whole.
+      From <b>0→1 startups</b> to <b>high-traffic production environments</b>, I've shipped across the spectrum,
+      and I enjoy <b>leading teams</b> while building a culture of growth.
+      I try never to compromise on either technical quality or product value.
     </p>
     <p>
-      최근에는 <b>AI를 활용한 개발 생산성 도구</b>와 <b>실시간 협업 기능</b>에 관심이 많습니다.
-      주말에는 사이드 프로젝트를 하거나 기술 블로그에 글을 쓰면서 배운 것들을 정리해요.
+      Lately I'm especially interested in <b>AI-powered developer productivity tools</b> and
+      <b>real-time collaboration</b>. On weekends, I work on side projects and write
+      on my tech blog to reflect on what I've learned.
     </p>
 
-    <h3>좋아하는 것</h3>
+    <h3>What I enjoy</h3>
     <ul>
-      <li>잘 설계된 API와 깔끔한 추상화</li>
-      <li>사용자가 "어, 이거 편하네"라고 말하는 순간</li>
-      <li>사용자의 불편함을 자동화로 풀어내는 서비스</li>
-      <li>커피, 헬스, 그리고 새로운 키보드 🧑‍💻</li>
+      <li>Well-designed APIs and clean abstractions</li>
+      <li>That moment when a user says "oh, this is nice"</li>
+      <li>Turning user friction into automation</li>
+      <li>Coffee, the gym, and new keyboards 🧑‍💻</li>
     </ul>
   </section>
 
   <!-- SKILLS -->
   <section id="skills" class="fade">
     <h2>🛠️ Skills</h2>
-    <p>실무에서 제품을 만들며 쌓아온 기술 스택입니다.</p>
+    <p>The tech stack I've built up while shipping production products.</p>
 
     <div class="skill-grid">
       <div class="skill-card">
         <div class="title"><span class="emoji">⚛️</span>Frontend</div>
         <ul class="sub-list">
-          <li><b>언어</b>: JavaScript (ES6+), TypeScript, HTML5, CSS3</li>
-          <li><b>프레임워크</b>: React, Next.js, Vue.js, Svelte</li>
-          <li><b>스타일링</b>: Tailwind CSS, Sass/SCSS, styled-components, Framer Motion</li>
-          <li><b>상태 관리</b>: Redux, Zustand, React Query (TanStack)</li>
-          <li><b>빌드 도구</b>: Vite, Webpack</li>
-          <li><b>기타</b>: Three.js</li>
+          <li><b>Languages</b>: JavaScript (ES6+), TypeScript, HTML5, CSS3</li>
+          <li><b>Frameworks</b>: React, Next.js, Vue.js, Svelte</li>
+          <li><b>Styling</b>: Tailwind CSS, Sass/SCSS, styled-components, Framer Motion</li>
+          <li><b>State Management</b>: Redux, Zustand, React Query (TanStack)</li>
+          <li><b>Build Tools</b>: Vite, Webpack</li>
+          <li><b>Others</b>: Three.js</li>
         </ul>
       </div>
       <div class="skill-card">
         <div class="title"><span class="emoji">🖥️</span>Backend</div>
         <ul class="sub-list">
-          <li><b>언어</b>: Node.js, Python, Java, Go</li>
-          <li><b>프레임워크</b>: Express, NestJS, FastAPI, Django, Flask, Spring Boot, Ruby on Rails</li>
+          <li><b>Languages</b>: Node.js, Python, Java, Go</li>
+          <li><b>Frameworks</b>: Express, NestJS, FastAPI, Django, Flask, Spring Boot, Ruby on Rails</li>
           <li><b>API</b>: GraphQL, REST, gRPC</li>
-          <li><b>실시간 통신</b>: WebSocket, Socket.io</li>
-          <li><b>인증</b>: JWT, OAuth 2.0</li>
-          <li><b>메시지 큐</b>: Kafka, RabbitMQ</li>
+          <li><b>Realtime</b>: WebSocket, Socket.io</li>
+          <li><b>Auth</b>: JWT, OAuth 2.0</li>
+          <li><b>Message Queue</b>: Kafka, RabbitMQ</li>
         </ul>
       </div>
       <div class="skill-card">
@@ -595,7 +591,7 @@
           <li><b>RDBMS</b>: PostgreSQL, MySQL, MariaDB, SQLite</li>
           <li><b>NoSQL</b>: MongoDB, DynamoDB, Cassandra</li>
           <li><b>Cache / In-memory</b>: Redis, Memcached</li>
-          <li><b>검색 엔진</b>: Elasticsearch, Algolia</li>
+          <li><b>Search</b>: Elasticsearch, Algolia</li>
           <li><b>ORM / Query</b>: Prisma, TypeORM, Sequelize, Drizzle</li>
           <li><b>BaaS</b>: Supabase, Firebase</li>
         </ul>
@@ -603,28 +599,28 @@
       <div class="skill-card">
         <div class="title"><span class="emoji">☁️</span>DevOps</div>
         <ul class="sub-list">
-          <li><b>컨테이너 / 오케스트레이션</b>: Docker, Docker Compose, Kubernetes</li>
-          <li><b>클라우드</b>: AWS (EC2, S3, Lambda, RDS, CloudFront), GCP, Azure</li>
-          <li><b>배포 플랫폼</b>: Vercel, Netlify, Cloudflare Pages, Fly.io</li>
+          <li><b>Containers / Orchestration</b>: Docker, Docker Compose, Kubernetes</li>
+          <li><b>Cloud</b>: AWS (EC2, S3, Lambda, RDS, CloudFront), GCP, Azure</li>
+          <li><b>Deployment</b>: Vercel, Netlify, Cloudflare Pages, Fly.io</li>
           <li><b>CI/CD</b>: GitHub Actions, Jenkins, CircleCI, GitLab CI</li>
           <li><b>IaC</b>: Terraform, AWS CDK</li>
-          <li><b>모니터링</b>: Grafana, Prometheus, Datadog, Sentry</li>
-          <li><b>웹 서버</b>: Nginx, Apache</li>
+          <li><b>Monitoring</b>: Grafana, Prometheus, Datadog, Sentry</li>
+          <li><b>Web Servers</b>: Nginx, Apache</li>
         </ul>
       </div>
       <div class="skill-card">
         <div class="title"><span class="emoji">🧪</span>Testing</div>
         <ul class="sub-list">
-          <li><b>유닛 / 통합</b>: Jest, Vitest</li>
+          <li><b>Unit / Integration</b>: Jest, Vitest</li>
           <li><b>E2E</b>: Playwright, Cypress</li>
-          <li><b>컴포넌트</b>: React Testing Library, Storybook</li>
-          <li><b>API 모킹</b>: MSW, Postman</li>
-          <li><b>부하 / 성능</b>: k6, Lighthouse</li>
+          <li><b>Component</b>: React Testing Library, Storybook</li>
+          <li><b>API Mocking</b>: MSW, Postman</li>
+          <li><b>Load / Performance</b>: k6, Lighthouse</li>
         </ul>
       </div>
       <div class="skill-card">
         <div class="title"><span class="emoji">🎨</span>Design</div>
-        <p>Figma, Design Systems, UI/UX 기본 감각</p>
+        <p>Figma, Design Systems, solid UI/UX fundamentals</p>
       </div>
     </div>
   </section>
@@ -632,10 +628,10 @@
   <!-- PROJECTS -->
   <section id="projects" class="fade">
     <h2>🚀 Projects</h2>
-    <p>직접 기획하고 만든 사이드 프로젝트와 리드한 프로젝트들입니다.</p>
+    <p>Side projects I've designed and built, and projects I've led.</p>
     <div class="callout">
       <div class="icon">🔒</div>
-      <div>회사에서 진행한 프로젝트는 보안상 비공개입니다. 아래는 개인 시간에 만든 사이드 프로젝트 위주로 정리했어요.</div>
+      <div>Work projects are confidential. The ones below are personal side projects I built on my own time.</div>
     </div>
 
     <div class="project">
@@ -652,15 +648,15 @@
         </svg>
       </div>
       <div class="head">
-        <h3>📸 TravelGram — 여행에서 기록까지 SNS</h3>
-        <span class="date">사이드 프로젝트</span>
+        <h3>📸 TravelGram — From Journey to Memory, a Travel SNS</h3>
+        <span class="date">Side Project</span>
       </div>
       <p>
-        여행 사진과 기록을 공유하는 SNS 형태의 모바일 웹앱.<br>
-        Vite로 빠른 개발 환경을 구성하고, Capacitor로 iOS·Android 네이티브 앱 빌드까지 경험.
+        A mobile-first social app for sharing travel photos and journals.<br>
+        Built on Vite for a fast dev loop, and shipped as a native app for iOS and Android via Capacitor.
       </p>
       <p class="learned">
-        <b>배운 것</b> · 모바일 웹뷰 환경의 제약, Lighthouse로 성능 측정·개선하는 사이클.
+        <b>What I learned</b> · Constraints of mobile webview environments, and the full cycle of measuring and improving performance with Lighthouse.
       </p>
       <div class="stack">
         <span>Vite</span><span>JavaScript</span><span>Capacitor</span><span>iOS</span><span>Android</span>
@@ -687,15 +683,15 @@
         </svg>
       </div>
       <div class="head">
-        <h3>⏳ TimeBox — 일론 머스크식 시간 관리</h3>
-        <span class="date">사이드 프로젝트</span>
+        <h3>⏳ TimeBox — Elon Musk-style Time Management</h3>
+        <span class="date">Side Project</span>
       </div>
       <p>
-        일론 머스크의 5분 단위 시간 블록 스케줄링 방식을 따라 만든 타이머/스케줄 앱.
+        A timer and scheduling app inspired by Elon Musk's 5-minute time-block scheduling method.
       </p>
       <p class="learned">
-        <b>배운 것</b> · 시간/타이머 다루기(setInterval, requestAnimationFrame 차이),
-        로컬 스토리지 기반 상태 관리, 작은 UX 디테일이 사용감에 미치는 영향.
+        <b>What I learned</b> · Handling time and timers (the difference between setInterval and requestAnimationFrame),
+        local-storage-based state management, and how tiny UX details shape the overall feel.
       </p>
       <div class="stack">
         <span>React</span><span>TypeScript</span>
@@ -724,15 +720,15 @@
       </div>
       <div class="head">
         <h3>👥 모임 앱 — 소규모 모임 관리</h3>
-        <span class="date">사이드 프로젝트</span>
+        <span class="date">Side Project</span>
       </div>
       <p>
-        친구들끼리 쓸 모임 일정·참여 인원을 관리하는 앱.<br>
-        회원가입, 일정 생성, 참여 토글 등의 기본 흐름 구현.
+        An app for managing small-group meetups — schedules and attendee lists.<br>
+        Implemented the core flows: sign-up, event creation, and RSVP toggling.
       </p>
       <p class="learned">
-        <b>배운 것</b> · 인증 플로우 설계(JWT, 세션), DB 스키마 설계의 트레이드오프,
-        폼 validation의 귀찮음과 중요성.
+        <b>What I learned</b> · Designing auth flows (JWT, sessions), trade-offs in DB schema design,
+        and the tedious-yet-critical work of form validation.
       </p>
       <div class="stack">
         <span>Next.js</span><span>TypeScript</span><span>Supabase</span>
@@ -778,14 +774,14 @@
       </div>
       <div class="head">
         <h3>✅ To-do & 습관 트래커</h3>
-        <span class="date">사이드 프로젝트</span>
+        <span class="date">Side Project</span>
       </div>
       <p>
-        일일 할 일과 반복 습관을 함께 관리하는 앱.<br>
-        잔디 형태의 시각화로 동기 부여 요소 추가.
+        An app that manages daily to-dos alongside recurring habits.<br>
+        Added a GitHub-style contribution grid visualization for motivation.
       </p>
       <p class="learned">
-        <b>배운 것</b> · 날짜/시간 처리(date-fns), 반복 일정 로직, 차트 라이브러리 비교(Recharts vs Visx).
+        <b>What I learned</b> · Date/time handling (date-fns), recurring-schedule logic, and comparing charting libraries (Recharts vs. Visx).
       </p>
       <div class="stack">
         <span>React</span><span>TypeScript</span><span>Tailwind</span>
@@ -816,14 +812,14 @@
       </div>
       <div class="head">
         <h3>💬 실시간 채팅 앱</h3>
-        <span class="date">학습용 토이 프로젝트</span>
+        <span class="date">Learning Toy Project</span>
       </div>
       <p>
-        Socket.io 학습을 위해 만든 1:1 / 그룹 채팅 앱.<br>
-        메시지 송수신, 입력 중 표시, 온라인 상태 표시 구현.
+        A 1:1 / group chat app built to learn Socket.io.<br>
+        Implemented message exchange, typing indicators, and online presence.
       </p>
       <p class="learned">
-        <b>배운 것</b> · WebSocket 동작 원리, 이벤트 기반 통신, 연결 끊김/재연결 처리의 어려움.
+        <b>What I learned</b> · How WebSockets actually work, event-driven communication, and the surprising difficulty of handling disconnects and reconnects.
       </p>
       <div class="stack">
         <span>Node.js</span><span>Socket.io</span><span>Express</span><span>React</span>
@@ -865,14 +861,14 @@
       </div>
       <div class="head">
         <h3>💰 가계부 앱</h3>
-        <span class="date">사이드 프로젝트</span>
+        <span class="date">Side Project</span>
       </div>
       <p>
-        매일의 수입·지출을 기록하고 카테고리별로 시각화하는 개인용 가계부.
+        A personal budgeting app that logs daily income and expenses and visualizes them by category.
       </p>
       <p class="learned">
-        <b>배운 것</b> · 차트 라이브러리(Chart.js) 활용, 금액 입력 UX의 디테일,
-        로컬 데이터 저장 vs 클라우드 동기화의 트레이드오프.
+        <b>What I learned</b> · Using charting libraries (Chart.js), UX details of numeric input,
+        and the trade-offs between local storage and cloud sync.
       </p>
       <div class="stack">
         <span>React</span><span>TypeScript</span><span>Chart.js</span><span>Supabase</span>
@@ -905,30 +901,30 @@
             <g transform="translate(580 300)"><rect width="160" height="36" rx="6" fill="#f97316"/><text x="80" y="23" text-anchor="middle">🛒 크롤러 🔍</text></g>
           </g>
           <text x="40" y="60" font-family="system-ui" font-size="36" font-weight="800" fill="#fff">🤖 Automation Suite</text>
-          <text x="40" y="92" font-family="system-ui" font-size="16" fill="#c7d2fe">7개 자동화 도구 · API · AI · Cron</text>
+          <text x="40" y="92" font-family="system-ui" font-size="16" fill="#c7d2fe">7 automation tools · API · AI · Cron</text>
           <text x="40" y="410" font-family="ui-monospace, monospace" font-size="11" fill="#a5b4fc" opacity="0.7">$ python automation/run.py --pipeline=all  ✓ 7 tasks scheduled</text>
         </svg>
       </div>
       <div class="head">
-        <h3>🤖 자동화 도구 모음 — 7개 프로젝트</h3>
-        <span class="date">사이드 프로젝트</span>
+        <h3>🤖 Automation Suite — 7 Projects in One</h3>
+        <span class="date">Side Project</span>
       </div>
       <p>
-        반복적인 수작업을 코드로 풀어내는 데 재미를 붙여, 다양한 영역의 자동화 도구를 직접 만들어왔습니다.
+        I've grown to love turning repetitive manual work into code, and have built a variety of automation tools across different domains.
       </p>
       <ul class="auto-list">
-        <li><b>📈 코인 자동매매 봇</b> — 업비트·Binance API 연동, 이동평균선·RSI 전략, 6,400만건 데이터로 백테스팅</li>
-        <li><b>📊 주식 추천 시스템</b> — 재무지표·뉴스 감성 분석 기반 종목 스코어링·알림</li>
-        <li><b>🎬 숏츠 자동화 파이프라인</b> — FFmpeg + OpenAI로 롱폼 → 숏츠 자동 변환·업로드</li>
-        <li><b>✂️ ClipAI</b> — 오퍼스클립 영감, 영상 하이라이트 자동 추출·자막 생성</li>
-        <li><b>📝 블로그 자동화</b> — 키워드 입력 → AI 글 생성 → 이미지 첨부 → 자동 발행</li>
-        <li><b>🛒 상품 소싱 크롤러</b> — 쇼핑몰 상품 가격·리뷰·재고 수집, 가격 변동 추적</li>
-        <li><b>🔍 키워드 수집 도구</b> — 네이버·구글 검색량·연관 키워드 자동 수집·시각화</li>
+        <li><b>📈 Crypto Auto-Trading Bot</b> — Upbit & Binance API integration, MA/RSI strategies, backtested on 64M+ data points</li>
+        <li><b>📊 Stock Recommendation System</b> — Scores and alerts on stocks based on financial metrics and news-sentiment analysis</li>
+        <li><b>🎬 Shorts Automation Pipeline</b> — FFmpeg + OpenAI to auto-convert long-form videos into shorts and upload them</li>
+        <li><b>✂️ ClipAI</b> — Inspired by OpusClip, auto-extracts video highlights and generates subtitles</li>
+        <li><b>📝 Blog Automation</b> — Keyword → AI-generated post → image attachment → auto-publish</li>
+        <li><b>🛒 Product Sourcing Crawler</b> — Collects prices, reviews, and stock data from shopping sites; tracks price changes</li>
+        <li><b>🔍 Keyword Research Tool</b> — Auto-collects search volume and related keywords from Naver/Google, with visualization</li>
       </ul>
       <p class="learned">
-        <b>공통적으로 배운 것</b> · 외부 API 연동(REST/WebSocket), rate limit·재시도 전략, 비동기 스케줄링,
-        대용량 데이터 처리, 봇 차단 우회, AI API 활용. 그리고 <b>"무엇을 자동화할 가치가 있는가"</b>를
-        판단하는 ROI 감각.
+        <b>Common themes I've learned</b> · External API integration (REST/WebSocket), rate-limit and retry strategies,
+        async scheduling, large-scale data processing, bypassing bot protections, and wiring up AI APIs.
+        And above all — a sense for <b>"what's actually worth automating"</b>, i.e. the ROI call.
       </p>
       <div class="stack">
         <span>Python</span><span>FastAPI</span><span>Playwright</span><span>OpenAI</span>
@@ -948,11 +944,11 @@
     <div class="timeline">
       <div class="item">
         <div class="when">2022.09 - 2026.04</div>
-        <h3>삼성생명 — 풀스택 개발자</h3>
-        <div class="company">삼성생명 디지털플랫폼팀</div>
+        <h3>Samsung Life Insurance — Full Stack Developer</h3>
+        <div class="company">Digital Platform Team</div>
         <ul>
-          <li>삼성생명 웹 시스템 및 모니모(Monimo) 통합 금융 플랫폼 유지·개발 및 운영</li>
-          <li>Vue.js 기반 화면 개발, Spring 백엔드 연동 및 운영 이슈 대응</li>
+          <li>Maintained and developed Samsung Life's web systems and the Monimo unified financial platform.</li>
+          <li>Built UI on Vue.js, integrated with Spring backend, and handled production operations.</li>
         </ul>
         <div class="exp-stack">
           <span>Vue.js</span><span>JavaScript</span><span>Spring</span><span>Java</span>
@@ -960,31 +956,31 @@
         </div>
       </div>
 
-    <div class="item">
+      <div class="item">
         <div class="when">2020.08 - 2022.04</div>
-        <h3>제로투세븐 — 웹 개발자 (프리랜서)</h3>
-        <div class="company">개발팀 · eCommerce</div>
+        <h3>0to7 — Web Developer (Freelance)</h3>
+        <div class="company">Dev Team · eCommerce</div>
         <ul>
-          <li>제로투세븐 eCommerce 시스템 유지·개발 (웹 개발/수정, 데이터 보정 및 운영)</li>
-          <li>PG사(이니시스, KCP, 토스페이먼츠 등) 결제 모듈 연동 및 결제 플로우 개선</li>
-          <li>마케팅 분석 도구 연동: GTM, GA4, Braze, Airbridge</li>
+          <li>Maintained and developed the 0to7 eCommerce system (web feature development, data fixes, operations).</li>
+          <li>Integrated payment modules with major Korean PGs (Inicis, KCP, Toss Payments) and improved checkout flows.</li>
+          <li>Integrated marketing & analytics tools: GTM, GA4, Braze, Airbridge.</li>
         </ul>
         <div class="exp-stack">
           <span>Angular.js</span><span>jQuery</span><span>JavaScript</span><span>JSP</span>
           <span>Spring</span><span>Java</span><span>Oracle</span><span>MyBatis</span>
           <span>Jenkins</span><span>Git</span><span>SVN</span>
-          <span>이니시스</span><span>KCP</span>
+          <span>Inicis</span><span>KCP</span>
           <span>GTM</span><span>GA4</span><span>Braze</span><span>Airbridge</span>
         </div>
       </div>
 
       <div class="item">
         <div class="when">2019.04 - 2020.07</div>
-        <h3>헬스케어 의료IT회사 — 연구원</h3>
-        <div class="company">소프트웨어 개발팀 · 헬스케어</div>
+        <h3>Healthcare IT Company — Research Engineer</h3>
+        <div class="company">Software Dev Team · Healthcare</div>
         <ul>
-          <li>환자 의료 데이터(심전도) 웹 서비스 개발</li>
-          <li>기존 시스템 유지·개선 및 모니터링 환경 구축</li>
+          <li>Developed a web service for patient medical data (ECG).</li>
+          <li>Maintained and improved legacy systems; set up monitoring infrastructure.</li>
         </ul>
         <div class="exp-stack">
           <span>React</span><span>JavaScript</span><span>jQuery</span>
@@ -996,10 +992,10 @@
 
       <div class="item">
         <div class="when">2018.09 - 2019.02</div>
-        <h3>와이엘랜드 — 대리</h3>
-        <div class="company">앱/서버 개발팀</div>
+        <h3>YL LAND — Assistant Manager</h3>
+        <div class="company">App / Server Dev Team · MVNO Telecom</div>
         <ul>
-          <li>웹 시스템 유지·개발 및 모바일 안드로이드 앱 API 개발</li>
+          <li>Maintained and developed web systems and built APIs for the Android mobile app.</li>
         </ul>
         <div class="exp-stack">
           <span>JavaScript</span><span>jQuery</span><span>JSTL</span>
@@ -1010,10 +1006,10 @@
 
       <div class="item">
         <div class="when">2017.11 - 2018.04</div>
-        <h3>에이디앤스타일 — 연구원</h3>
-        <div class="company">세컨즈팩토리 개발팀</div>
+        <h3>AD&amp;Style — Researcher</h3>
+        <div class="company">Seconds Factory Dev Team</div>
         <ul>
-          <li>웹 시스템 유지 및 개발 (개발/수정, 데이터 보정 및 운영)</li>
+          <li>Maintained and developed web systems (feature dev/fixes, data corrections, operations).</li>
         </ul>
         <div class="exp-stack">
           <span>JavaScript</span><span>JSTL</span>
@@ -1024,11 +1020,11 @@
 
       <div class="item">
         <div class="when">2012.08 - 2017.04</div>
-        <h3>네이버해피빈 — 팀원</h3>
-        <div class="company">네이버 해피빈 개발팀</div>
+        <h3>Naver Happybean — Engineer</h3>
+        <div class="company">Naver Happybean Dev Team</div>
         <ul>
-          <li>네이버 해피빈(happybean.naver.com) 웹 시스템 유지·개발</li>
-          <li>약 4년간 장기 데이터 보정·운영 전반 담당</li>
+          <li>Maintained and developed the Naver Happybean (happybean.naver.com) web system.</li>
+          <li>Owned data corrections and overall operations for ~4 years on long-term assignment.</li>
         </ul>
         <div class="exp-stack">
           <span>JavaScript</span><span>jQuery</span><span>JSTL</span>
@@ -1040,8 +1036,8 @@
 
       <div class="item">
         <div class="when">2016</div>
-        <h3>학력</h3>
-        <div class="company">컴퓨터공학 학사 · HYCU</div>
+        <h3>Education</h3>
+        <div class="company">B.S. in Computer Science · HYCU</div>
       </div>
     </div>
   </section>
@@ -1049,7 +1045,7 @@
   <!-- CONTACT -->
   <section id="contact" class="fade">
     <h2>📮 Contact</h2>
-    <p>함께 일하고 싶거나, 그냥 인사를 하고 싶으시다면 언제든 연락 주세요.</p>
+    <p>If you'd like to work together — or just want to say hi — feel free to reach out anytime.</p>
 
     <div class="contact-grid">
       <a href="mailto:eqie112@gmail.com">
@@ -1062,7 +1058,7 @@
       </a> -->
       <a href="https://www.linkedin.com/in/juwon-lee-b19a92191/" target="_blank">
         <span class="icon">💼</span>
-        <span><span class="label">LinkedIn</span><span class="value">이주원</span></span>
+        <span><span class="label">LinkedIn</span><span class="value">Jayden</span></span>
       </a>
       <!-- <a href="https://X.com" target="_blank">
         <span class="icon">🐦</span>
@@ -1072,20 +1068,20 @@
 
     <div class="callout">
       <div class="icon">☕</div>
-      <div>서울에 계시다면 커피 한잔 어떠세요? 좋은 제품과 변화하는 AI 기술 이야기를 나누는 걸 좋아합니다.</div>
+      <div>If you're in Seoul, want to grab a coffee? I love chatting about good products and the fast-changing world of AI.</div>
     </div>
 
     <div class="callout">
       <div class="icon">💼</div>
       <div>
-        <b>외주·프리랜서 의뢰도 환영합니다.</b><br>
-        웹/앱 개발, 자동화 도구, AI 연동 프로젝트 등 자유롭게 문의 주세요. 일정과 견적 협의 가능합니다.
+        <b>Open to freelance and contract work.</b><br>
+        Web/mobile development, automation tools, AI-powered integrations — feel free to reach out. Happy to discuss timelines and budget.
       </div>
     </div>
   </section>
 
   <footer>
-    Made with ☕ and code · © 2026 이주원
+    Made with ☕ and code · © 2026 Jayden
   </footer>
 
 </main>
