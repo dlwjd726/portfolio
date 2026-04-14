@@ -1096,6 +1096,52 @@
   });
   navOverlay.addEventListener('click', closeNav);
   sideNav.querySelectorAll('a[href^="#"]').forEach(a => a.addEventListener('click', closeNav));
+
+  // ===== GA4 Custom Events =====
+  const track = (name, params = {}) => {
+    if (typeof gtag === 'function') gtag('event', name, params);
+  };
+
+  // 1. 단계별 스크롤 깊이 (25/50/75/100)
+  const scrollMilestones = [25, 50, 75, 100];
+  const hitMilestones = new Set();
+  window.addEventListener('scroll', () => {
+    const docH = document.documentElement.scrollHeight - window.innerHeight;
+    const pct = Math.round((window.scrollY / docH) * 100);
+    scrollMilestones.forEach(m => {
+      if (pct >= m && !hitMilestones.has(m)) {
+        hitMilestones.add(m);
+        track('scroll_depth', { percent: m });
+      }
+    });
+  }, { passive: true });
+
+  // 2. 섹션 도달 이벤트
+  const seenSections = new Set();
+  const sectionObs = new IntersectionObserver((entries) => {
+    entries.forEach(e => {
+      if (e.isIntersecting && !seenSections.has(e.target.id)) {
+        seenSections.add(e.target.id);
+        track('section_view', { section: e.target.id });
+      }
+    });
+  }, { threshold: 0.5 });
+  document.querySelectorAll('section[id]').forEach(s => sectionObs.observe(s));
+
+  // 3. 주요 CTA 클릭 (이메일 / GitHub / LinkedIn / 프로젝트 링크)
+  document.querySelectorAll('a[href^="mailto:"]').forEach(a => {
+    a.addEventListener('click', () => track('contact_click', { type: 'email' }));
+  });
+  document.querySelectorAll('a[href*="github.com"]').forEach(a => {
+    a.addEventListener('click', () => track('contact_click', { type: 'github', url: a.href }));
+  });
+  document.querySelectorAll('a[href*="linkedin.com"]').forEach(a => {
+    a.addEventListener('click', () => track('contact_click', { type: 'linkedin' }));
+  });
+
+  // 4. 체류 시간 30초 이상
+  setTimeout(() => track('engaged_30s'), 30000);
+  setTimeout(() => track('engaged_60s'), 60000);
 </script>
 
 </body>
